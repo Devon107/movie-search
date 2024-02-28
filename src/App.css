@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.moviepanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  width: 100%;
+}
+.search {
+  width: 12rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #cacaca;
+}
+.movie{
+  height: 33.8125rem;
+  display: grid;
+  align-items: center;
+  gap: 0.5rem;
+}
+.movie img{
+  max-width: 18.75rem;
+  max-height: 28.125rem;
+}
