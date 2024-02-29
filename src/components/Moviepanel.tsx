@@ -5,7 +5,7 @@ const Moviepanel = (movies: any) => {
     if (movies?.length === 0) return(<>No hay resultados</>)
     return (
         <div className="moviepanel">
-            {movies?.movies.map((movie: any) => (
+            { movies?.movies.map((movie: any) => (
                 <article className="movie" key={movie.id}>
                     <h3>{movie.title}</h3>
                     <p>{movie.year}</p>
@@ -16,7 +16,7 @@ const Moviepanel = (movies: any) => {
                 </article>
             ))}
         </div>
-    );
-};
+    )
+}
 
 export default Moviepanel;

@@ -32,12 +32,12 @@ function App() {
       return
     }
     if ( query === previousSearch.current) return
-    const getData = setTimeout(() => {
+
+    const getData = setTimeout(async () => {
       previousSearch.current = query
       setError('')
-      getMovies(query).then(moviesArray => {
-        setMovies(moviesArray)
-      })
+      const moviesArray = await getMovies(query)
+      setMovies(moviesArray)
     }, 500)
 
     return () => clearTimeout(getData)
@@ -54,7 +54,7 @@ function App() {
       </header>
       <main>
         <Search query={query} onChange={handleChange} error={error}/>
-        <Moviepanel movies={movies}/>
+        {movies && <Moviepanel movies={movies}/>}
       </main>
       <footer>
 
