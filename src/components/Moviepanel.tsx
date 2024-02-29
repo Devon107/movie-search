@@ -1,89 +1,20 @@
-const placeholder = 'https://via.placeholder.com/300x450.png'
+const placeholder = '300x450.svg'
 
 
-const Moviepanel = (image?: any) => {
+const Moviepanel = (movies: any) => {
+    if (movies?.length === 0) return(<>No hay resultados</>)
     return (
         <div className="moviepanel">
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
-            <article className="movie">
-                <h3>Movie title</h3>
-                <p>2024</p>
-                <picture>
-                    <source type="image/webp" srcSet="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"/>
-                    <img loading="lazy" src={placeholder} alt="movie title banner"/>
-                </picture>
-            </article>
+            {movies?.movies.map((movie: any) => (
+                <article className="movie" key={movie.id}>
+                    <h3>{movie.title}</h3>
+                    <p>{movie.year}</p>
+                    <picture>
+                        <source type="image/webp" srcSet={movie.image === 'N/A' ? placeholder: movie.image}/>
+                        <img loading="lazy" src={placeholder} alt="movie title banner"/>
+                    </picture>
+                </article>
+            ))}
         </div>
     );
 };

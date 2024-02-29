@@ -5,6 +5,13 @@
   padding: 2rem;
   text-align: center;
 }
+header h1{
+  margin-bottom: 1rem;
+}
+main {
+  width: 100%;
+  padding: 1.5rem;
+}
 .moviepanel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -14,9 +21,12 @@
 .search {
   width: 12rem;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   border-radius: 0.5rem;
   border: 0.1rem solid #cacaca;
+}
+.error-message {
+  color: red;
 }
 .movie{
   height: 33.8125rem;

@@ -1,13 +1,15 @@
 type Props = {
     query?: string,
-    setQuery: (query: string) => void
+    onChange: (search: any) => void
     error ?: string
 }
-const Search = ({query, setQuery, error}: Props) => {
-
+const Search = ({query, error, onChange}: Props) => {
+    const handleChange = (search: any) => {
+        onChange(search)
+    }
     return (
         <div>
-            <input type="text" placeholder="Search" className="search" value={query} onChange={(e) => setQuery(e.target.value)}/>
+            <input type="text" placeholder="Search" className="search" value={query} onChange={e => handleChange(e.target.value)} />
             <p className="error-message">{error ?? ''}</p>
         </div>
     );
